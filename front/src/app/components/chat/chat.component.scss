@@ -1,0 +1,30 @@
+::ng-deep {
+  .p-button {
+    background-color: black;
+  }
+  .p-iconfield {
+    width: 100%;
+  }
+
+  p-progressbar {
+    display: none;
+  }
+}
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  border-radius: 6px;
+  gap: 0.5rem;
+}
+
+.prompt-row {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  gap: 15px;
+}

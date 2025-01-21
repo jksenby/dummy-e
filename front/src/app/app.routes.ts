@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-import { VmListComponent } from './components/vm-list/vm-list.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { ChatComponent } from './components/chat/chat.component';
+
 export const routes: Routes = [
-  { path: '', component: ProjectsComponent, title: 'Список проектов' },
-  { path: 'servers', component: VmListComponent, title: 'Список хостов' },
+  { path: '', component: ChatComponent, title: 'Список хостов' },
 ];

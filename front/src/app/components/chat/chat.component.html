@@ -1,0 +1,53 @@
+<div
+  style="
+    position: absolute;
+    bottom: 3px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  "
+>
+  <div class="card w-1/2">
+    <div class="toolbar">
+      <div class="prompt-row">
+        <p-iconfield iconPosition="left">
+          <p-inputicon styleClass="pi pi-search" />
+          <input
+            #prompt
+            type="text"
+            pInputText
+            placeholder="Type the prompt"
+            style="width: 100%"
+          />
+        </p-iconfield>
+        <p-button
+          icon="pi pi-arrow-up"
+          rounded="true"
+          size="small"
+          (onClick)="sendPrompt(prompt.value)"
+        />
+      </div>
+
+      <p-fileupload
+        name="demo[]"
+        url="https://www.primefaces.org/cdn/api/upload.php"
+        (onUpload)="onUpload($event)"
+        [multiple]="true"
+        accept=".pdf"
+        maxFileSize="1000000"
+        mode="advanced"
+      >
+        <ng-template #empty>
+          <div>Drag and drop files to here to upload.</div>
+        </ng-template>
+        <ng-template #content>
+          <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">
+              {{ file.name }} - {{ file.size }} bytes
+            </li>
+          </ul>
+        </ng-template>
+      </p-fileupload>
+    </div>
+  </div>
+</div>

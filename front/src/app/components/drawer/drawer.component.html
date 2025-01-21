@@ -1,4 +1,4 @@
-<div style="width: 20rem">
+<div style="width: 20rem; height: 100%">
   <div class="flex flex-col h-full">
     <div class="flex items-center justify-between px-6 shrink-0 drawer-ripple">
       <span class="inline-flex items-center gap-2">
@@ -6,7 +6,7 @@
           class="fa-brands fa-quinscape text-surface-0"
           style="font-size: 33px"
         ></i>
-        <span class="font-semibold text-2xl text-surface-0">DEVOPSIZER</span>
+        <span class="font-semibold text-2xl text-surface-0">DUMMY-E</span>
       </span>
       <span>
         <p-button
@@ -20,7 +20,7 @@
         ></p-button>
       </span>
     </div>
-    <div class="overflow-y-auto sidebar-content-container">
+    <div class="overflow-y-auto sidebar-content-container h-full">
       <ul class="list-none p-4 m-0">
         <li>
           <div
@@ -32,18 +32,18 @@
             leaveActiveClass="animate-slideup"
             class="p-4 flex items-center justify-between text-surface-600 dark:text-surface-200 cursor-pointer p-ripple"
           >
-            <span class="font-medium">FAVORITES</span>
+            <span class="font-medium">CHATS</span>
             <i class="pi pi-chevron-down"></i>
           </div>
           <ul class="list-none p-0 m-0 overflow-hidden">
             <li>
               <a
-                [routerLink]="['servers']"
+                [routerLink]="['chats/1']"
                 pRipple
                 class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple"
               >
                 <i class="pi pi-home mr-2"></i>
-                <span class="font-medium">Servers</span>
+                <span class="font-medium">Chat #1</span>
               </a>
             </li>
             <li>
@@ -65,11 +65,8 @@
         pRipple
         class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple"
       >
-        <p-avatar
-          image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-          shape="circle"
-        />
-        <span class="font-bold">Amy Elsner</span>
+        <p-avatar image="../../../assets/pfp.jpg" shape="circle" />
+        <span class="font-bold">Karsenbay Zhalgas</span>
       </a>
     </div>
   </div>

@@ -24,17 +24,10 @@ app.get("/api", (request, response) => {
   response.send("None shall pass");
 });
 
-app.get("/api/hosts", engine.getHosts);
-
-app.get("/api/hosts/:id", engine.getOneHost);
-
-app.post("/api/newhost", engine.newHost);
-
-app.put("/api/updatehost/:id", engine.updateHost);
-
-app.delete("api/hosts/:id", engine.deleteHost);
+app.post("/api/prompt", engine.handlePrompt);
+app.get("/api/prompt", engine.getPrompts);
+app.delete("/api/prompt/:id", engine.deletePrompt);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
-  engine.generateInventory();
 });
