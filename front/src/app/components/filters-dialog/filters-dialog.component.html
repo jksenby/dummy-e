@@ -1,0 +1,14 @@
+<form [formGroup]="filtersForm" (ngSubmit)="onSubmit()">
+  <div class="form-field">
+    <label>Location</label>
+    <p-select
+      [options]="locations"
+      optionValue="id"
+      optionLabel="name"
+      appendTo="body"
+    ></p-select>
+  </div>
+  <footer>
+    <p-button label="Save" icon="pi pi-save" type="submit"></p-button>
+  </footer>
+</form>

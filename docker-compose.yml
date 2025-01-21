@@ -1,0 +1,40 @@
+# docker-compose.yml
+services:
+  api:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgres://user:pass@postgres:5432/db
+      NODE_ENV: development
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    command: node index.js
+    volumes:
+      - ./backend:/app/
+      - /app/node_modules
+    restart: always
+
+  db:
+    image: postgres:15
+    ports:
+      - "127.0.0.1:55432:5432"
+    environment:
+      POSTGRES_DB: 'hero'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+    volumes:
+      - "./volumes/db:/var/lib/postgresql/data:z"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  nginx:
+    image: nginx:alpine
+    build: ./front
+    ports:
+      - "9090:80"
+    volumes:
+      - ./front/dist/front/browser:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    restart: always

@@ -1,0 +1,40 @@
+<form [formGroup]="serverForm" (ngSubmit)="onSubmit()">
+  <div class="form-field">
+    <label>Name</label>
+    <input type="text" pInputText formControlName="name" />
+  </div>
+  <div class="form-field">
+    <label>Project</label>
+    <input type="text" pInputText formControlName="project" />
+  </div>
+  <div class="form-field">
+    <label>IP address</label>
+    <input type="text" pInputText formControlName="ip1" />
+  </div>
+  <div class="form-field">
+    <label>SSH type</label>
+    <input type="text" pInputText formControlName="ssh_type" />
+  </div>
+  <div class="form-field">
+    <label>SSH key</label>
+    <input type="text" pInputText formControlName="ssh_key" />
+  </div>
+  <div class="form-field">
+    <label>Login</label>
+    <input type="text" pInputText formControlName="login" />
+  </div>
+  <div class="form-field">
+    <label>Password</label>
+    <input type="password" pInputText formControlName="password" />
+  </div>
+  <footer>
+    <p-button
+      label="Delete"
+      icon="pi pi-trash"
+      (onClick)="onDelete()"
+      severity="danger"
+    ></p-button>
+    <p-button label="Save" icon="pi pi-save" type="submit"></p-button>
+  </footer>
+</form>
+<p-toast />
