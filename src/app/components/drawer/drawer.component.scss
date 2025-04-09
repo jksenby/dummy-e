@@ -1,0 +1,9 @@
+@use "../../../styles/utils/index.scss" as *;
+
+::ng-deep .drawer-ripple {
+  background: $primary-color !important;
+  border-bottom: 1px solid #334155;
+  height: 70px !important;
+  align-items: center !important;
+}
+

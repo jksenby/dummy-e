@@ -1,0 +1,65 @@
+<div class="flex flex-col gap-2">
+
+  <p-accordion value="">
+    <p-accordion-panel value="0">
+      <p-accordion-header>
+        <ng-template #toggleicon let-active="active">
+          @if (active) {
+          <p-button severity="secondary" label="Hide"></p-button>
+          } @else {
+          <p-button severity="secondary" label="Change password"></p-button>
+          }
+        </ng-template>
+        <h2>Password</h2>
+      </p-accordion-header>
+      <p-accordion-content>
+        <form [formGroup]="passwordForm" (ngSubmit)="onSubmitChangePassword()">
+          <div class="form-group">
+            <div class="mb-1">
+              <label for="user_old_password" class="form-label"
+                >Old password</label
+              >
+            </div>
+            <input
+              id="user_old_password"
+              type="text"
+              pInputText
+              formControlName="oldPassword"
+            />
+          </div>
+          <div class="form-group">
+            <div class="mb-1">
+              <label for="user_new_password" class="form-label"
+                >New Password</label
+              >
+            </div>
+            <input
+              id="user_new_password"
+              type="text"
+              pInputText
+              formControlName="newPassword"
+            />
+          </div>
+          <div class="form-group">
+            <div class="mb-1">
+              <label for="user_confirmation_password" class="form-label"
+                >Confirm password</label
+              >
+            </div>
+            <input
+              id="user_confirmation_password"
+              type="text"
+              pInputText
+              formControlName="confirmationPassword"
+            />
+          </div>
+
+          <button pButton label="Change password" type="submit"></button>
+        </form>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+
+  <p-button severity="danger" label="Sign out" (onClick)="logout()"></p-button>
+</div>
+<p-toast></p-toast>

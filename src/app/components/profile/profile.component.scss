@@ -1,0 +1,16 @@
+.form-group {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        width: 100%;
+    }
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}

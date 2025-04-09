@@ -1,0 +1,55 @@
+<div #wrapper class="flex flex-col justify-between h-full">
+  <div class="chat-container">
+      <p *ngFor="let output of outputs" [class]="output.isUser ? 'text-end bg-surface-800' : 'text-start bg-surface-900'">{{output.value}}</p>
+  </div>
+
+  <div class="input-container">
+    <div class="w-full">
+      <div class="flex gap-2 items-center mb-4">
+        <form
+          [formGroup]="inputForm"
+          (ngSubmit)="onSubmit()"
+          class="w-full flex-1"
+          id="form"
+        >
+          <p-iconfield iconPosition="left">
+            <p-inputicon styleClass="fa-solid fa-lightbulb" />
+            <input
+              type="text"
+              pInputText
+              placeholder="Ask something..."
+              class="w-full"
+              formControlName="inputValue"
+            />
+          </p-iconfield>
+        </form>
+        <button
+          pButton
+          type="submit"
+          icon="fa-solid fa-up-long"
+          form="form"
+        ></button>
+      </div>
+      <p-fileupload
+        name="demo[]"
+        url="https://www.primefaces.org/cdn/api/upload.php"
+        (onUpload)="onUpload($event)"
+        [multiple]="true"
+        maxFileSize="10000000"
+        mode="advanced"
+      >
+        <ng-template #empty>
+          <div>Drag and drop files to here to upload.</div>
+        </ng-template>
+        <ng-template #content>
+          <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">
+              {{ file.name }} - {{ file.size }} bytes
+            </li>
+          </ul>
+        </ng-template>
+      </p-fileupload>
+    </div>
+  </div>
+  <d-spinner *ngIf="isLoading" [bindedElement]="wrapper"> </d-spinner>
+</div>

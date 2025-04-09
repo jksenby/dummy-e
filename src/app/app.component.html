@@ -1,0 +1,36 @@
+<div class="flex w-full" *ngIf="isLoggedIn">
+  <app-drawer></app-drawer>
+  <div class="w-full flex flex-col">
+    <header>
+      <!-- <p-button icon="fa-solid fa-diagram-project" [routerLink]="['projects']" text severity="contrast"></p-button>
+        <p-button icon="fa-solid fa-home" [routerLink]="['dashboard']" text severity="contrast"></p-button> -->
+      <p-button
+        icon="pi pi-sign-in"
+        severity="contrast"
+        text
+        [routerLink]="['login']"
+        *ngIf="!isLoggedIn"
+      >
+      </p-button>
+      <p-avatar
+        shape="circle"
+        image="../assets/image.png"
+        pRipple
+        class="cursor-pointer"
+        [routerLink]="['profile']"
+        *ngIf="isLoggedIn"
+      ></p-avatar>
+    </header>
+    <div class="m-4 h-full">
+      <ng-container *ngTemplateOutlet="routerOutlet"></ng-container>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isLoggedIn" class="w-full h-full">
+  <ng-container *ngTemplateOutlet="routerOutlet"></ng-container>
+</div>
+
+<ng-template #routerOutlet>
+  <router-outlet></router-outlet>
+</ng-template>

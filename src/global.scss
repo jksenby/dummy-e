@@ -1,0 +1,10 @@
+@use 'styles/utils/index.scss' as *;
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background-color: $background-color;
+}

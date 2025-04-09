@@ -1,0 +1,54 @@
+@use "../styles/utils/index.scss" as *;
+
+header {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:black;
+  padding: 0px;
+  background-color: $primary-color;
+  border-bottom: 1px solid #334155;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+.header {
+  overflow: hidden;
+  padding: 10px 70px;
+  display: flex;
+}
+
+.header img {
+  width: 60px;
+}
+
+.header a {
+  width: 20%;
+}
+
+.header-center {
+  justify-content: start;
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+
+.header-right {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  width: 10%;
+}
+
+::ng-deep {
+  header {
+    .p-button-label {
+      font-size: larger;
+      font-weight: 700 !important;
+    }
+  }
+}

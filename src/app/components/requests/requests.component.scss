@@ -1,0 +1,30 @@
+:host {
+  height: 100%;
+  }
+
+
+::ng-deep {
+  .p-card-content {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .p-panel-content {
+    padding: 0;
+  }
+
+  .p-toolbar-center {
+    flex: 1;
+    width: 100%;
+  }
+
+  p-iconfield {
+    width: 100%;
+  }
+
+  .p-fileupload {
+    .p-button-label {
+      display: none;
+     }
+  }
+}

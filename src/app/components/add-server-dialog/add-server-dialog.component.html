@@ -1,0 +1,25 @@
+<form [formGroup]="serverForm" (ngSubmit)="onSubmit()">
+  <p-float-label variant="on">
+    <input id="name" type="text" pInputText formControlName="name" />
+    <label for="name">Name</label>
+  </p-float-label>
+  <p-float-label variant="on">
+    <input id="ip_address" type="text" pInputText formControlName="ip_address" />
+    <label for="ip_address">IP address</label>
+  </p-float-label>
+  <p-float-label variant="on">
+    <input id="username" type="text" pInputText formControlName="username" />
+    <label for="username">Username</label>
+  </p-float-label>
+  <footer>
+    <p-button
+      label="Delete"
+      icon="pi pi-trash"
+      (onClick)="onDelete(host.id)"
+      severity="danger"
+      *ngIf="!!host"
+    ></p-button>
+    <p-button label="Save" icon="pi pi-save" type="submit"></p-button>
+  </footer>
+</form>
+<p-toast />
