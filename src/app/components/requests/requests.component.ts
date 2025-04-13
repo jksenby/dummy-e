@@ -50,7 +50,7 @@ export class RequestsComponent implements OnInit {
   public inputForm: FormGroup = new FormGroup({
     inputValue: new FormControl('', Validators.required)
   });
-  public uploadedFiles: any[] = [];
+  public uploadedFiles: File[] = [];
   public outputs: any[] = [];
 
   constructor(private messageService: MessageService, private _requestsSerivce: RequestsService) {}
@@ -72,9 +72,10 @@ export class RequestsComponent implements OnInit {
       isUser: true
     });
 
-    this._requestsSerivce.sendRequest(this.inputForm.value).pipe(finalize(() => this.isLoading = false)).subscribe({
+    this._requestsSerivce.sendRequest({...this.inputForm.value, file: this.uploadedFiles[0]}).pipe(finalize(() => this.isLoading = false)).subscribe({
       next: (response: any) => {
         this.inputForm.get('inputValue')?.patchValue('');
+        this.uploadedFiles = [];
         console.log(response);
         this.outputs.push({
           value: response.output,

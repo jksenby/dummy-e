@@ -10,8 +10,10 @@ export class RequestsService {
   constructor(private http: HttpClient) {}
 
   public sendRequest(body: any) {
-    return this.http.post(this.host + 'requests', {
-        input: body.inputValue
-    }, { withCredentials: true });
+    var formData = new FormData();
+    formData.append('input', body.inputValue);
+    if(body.file)
+    formData.append('file', body.file);
+    return this.http.post(this.host + 'requests', formData, { withCredentials: true });
   }
 }
