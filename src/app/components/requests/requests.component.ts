@@ -19,6 +19,7 @@ import { FileUploadEvent, FileUploadModule } from 'primeng/fileupload';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RequestsService } from 'src/app/cors/services/requests.service';
 import { finalize } from 'rxjs';
+import {marked} from 'marked'
 
 @Component({
   selector: 'app-projects',
@@ -78,7 +79,7 @@ export class RequestsComponent implements OnInit {
         this.uploadedFiles = [];
         console.log(response);
         this.outputs.push({
-          value: response.output,
+          value: marked.parse(response.output),
           isUser: false
         })
       }, error: (err) => {

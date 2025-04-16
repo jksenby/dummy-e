@@ -1,6 +1,6 @@
 <div #wrapper class="flex flex-col justify-between h-full">
   <div class="chat-container">
-      <p *ngFor="let output of outputs" [class]="output.isUser ? 'text-end bg-surface-800' : 'text-start bg-surface-900'">{{output.value}}</p>
+      <p *ngFor="let output of outputs" class="m-4 p-4 text-lg" [class]="output.isUser ? 'text-end bg-surface-800' : 'text-start bg-surface-900'" [innerHTML]="output.value"></p>
   </div>
 
   <div class="input-container">
