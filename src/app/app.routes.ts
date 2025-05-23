@@ -9,7 +9,7 @@ import { AuthLoginGuard } from './cors/guards/auth-login.guard';
 
 export const routes: Routes = [
   {
-    path: 'requests',
+    path: 'requests/:conversationId',
     component: RequestsComponent,
     canActivate: [AuthGuard],
   },
@@ -25,7 +25,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'requests',
+    redirectTo: 'profile',
     pathMatch: 'full',
   },
   {

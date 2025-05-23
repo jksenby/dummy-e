@@ -34,7 +34,7 @@ export class LoginComponent  implements OnInit {
       next: (response: any) => {
         console.log(response);
         localStorage.setItem('token', response.access_token)
-        this.router.navigate(['/requests'], {queryParams: {initial: true}}).then(() => location.reload());
+        this.router.navigate(['/profile'], {queryParams: {initial: true}}).then(() => location.reload());
       },error: err => {
         console.error(err);
         this.messageService.add({
@@ -44,16 +44,4 @@ export class LoginComponent  implements OnInit {
       }
     })
   }
-
-  onGoogleLogin() {
-    // window.electronAPI.openPopup();
-    this.http.get(environment.host + 'login/google', {withCredentials: true}).subscribe({next: response => {
-      console.log(response)
-    }, error: response => {
-      console.log(response)
-    }});
-
-    // window.open(environment.host + 'login/google', '_self')
-  }
-
 }

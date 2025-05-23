@@ -13,6 +13,9 @@ import { AvatarModule } from 'primeng/avatar';
 import { CommonModule } from '@angular/common';
 import { RippleModule } from 'primeng/ripple';
 import { AuthService } from './cors/services/auth.service';
+import { RequestsService } from './cors/services/requests.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -25,15 +28,19 @@ import { AuthService } from './cors/services/auth.service';
     AvatarModule,
     CommonModule,
     RippleModule,
+    ToastModule
   ],
   styleUrls: ['app.component.scss'],
+  providers: [RequestsService, MessageService]
 })
 export class AppComponent implements OnInit {
   public isLoggedIn: boolean = false;
+  public conversations: any[] | undefined;
 
   constructor(
     private primeng: PrimeNG,
-    private authService: AuthService
+    private authService: AuthService,
+    private _requestsService: RequestsService
   ) {
     if (!localStorage.getItem('theme')) localStorage.setItem('theme', 'dark');
     document
@@ -44,10 +51,24 @@ export class AppComponent implements OnInit {
       localStorage.getItem('theme') === 'light'
     )
       document.querySelector('body')!.style.backgroundColor = '#fff';
+
+      this.getAllConversations();
   }
 
   ngOnInit() {
     this.primeng.ripple.set(true);
     this.isLoggedIn = this.authService.isAuthenticatedUser();
+  }
+
+  public handleRefreshConversations() {
+    this.getAllConversations();
+  }
+
+  public getAllConversations() {
+    this._requestsService.getAllConversations().subscribe({
+      next: (conversations) => {
+        this.conversations = conversations;
+      }
+    })
   }
 }

@@ -1,5 +1,5 @@
 <div class="flex w-full" *ngIf="isLoggedIn">
-  <app-drawer></app-drawer>
+  <app-drawer [conversations]="conversations" (refreshConversations)="handleRefreshConversations()"></app-drawer>
   <div class="w-full flex flex-col">
     <header>
       <!-- <p-button icon="fa-solid fa-diagram-project" [routerLink]="['projects']" text severity="contrast"></p-button>
@@ -34,3 +34,5 @@
 <ng-template #routerOutlet>
   <router-outlet></router-outlet>
 </ng-template>
+
+<p-toast></p-toast>
