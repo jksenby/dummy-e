@@ -1,6 +1,6 @@
-# Devopsizer  
+# Dummy-E  
 
-**Devopsizer** is an Ionic-Electron-Angular application designed for the inventorization of projects and servers. This application allows users to efficiently manage and track their development and deployment environments.  
+**Dummy-E ** is an Ionic-Electron-Angular application designed for the inventorization of projects and servers. This application allows users to efficiently manage and track their development and deployment environments.  
 
 ## Features  
 - Inventory management for projects and servers  
@@ -15,7 +15,7 @@ Before running the application, ensure you have **Node.js** and **npm** installe
 ### 1️⃣ Clone the repository  
 ```sh
 git clone <repository-url>
-cd Devopsizer
+cd Dummy-E
 ```
 
 ### 2️⃣ Install dependencies
